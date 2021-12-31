@@ -19,6 +19,7 @@
     "@ezbackend/cors": "^0.2.0",
     "@ezbackend/utils": "^0.2.0",
     "dotenv": "^10.0.0",
+    "pg": "^8.7.1",
     "telegraf": "^4.5.2"
   },
   "devDependencies": {
