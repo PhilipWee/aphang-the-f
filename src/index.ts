@@ -152,11 +152,9 @@ bot.command('delete', (ctx) => {
 
 app.addApp(catchPhrase);
 
-console.log("beep boop")
 
 async function run() {
   if (process.env.NODE_ENV === 'production') {
-    console.log('productioning')
     await app.start({
       backend: {
         listen: {
@@ -165,11 +163,12 @@ async function run() {
         typeorm: {
           type: 'postgres',
           url: process.env.DATABASE_URL,
-          ssl: true
+          ssl: {
+            rejectUnauthorized: false
+          }
         }
       }
     });
-    console.log("app started yoo hoo")
   } else {
     app.start()
   }
