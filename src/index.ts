@@ -129,7 +129,7 @@ bot.command('list_all', async (ctx) => {
     return catchPhrase.title
   })
   const listString = allCatchPhrases
-  const resultFinal = 'Here you go: \n' + listString.join('\n')
+  const resultFinal = 'Here you go: \n' + listString.join('\n----------\n')
   ctx.reply(resultFinal)
 })
 
