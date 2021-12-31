@@ -16,7 +16,7 @@ const catchPhrase = new EzRepo('CatchPhrase', {
     type: Type.VARCHAR,
     unique: true
   }, // string
-  meaning: Type.INT, // integer
+  meaning: Type.VARCHAR, // integer
 });
 
 function getText(ctx) {
