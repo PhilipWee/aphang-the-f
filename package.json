@@ -18,7 +18,8 @@
     "@ezbackend/core": "^0.2.0",
     "@ezbackend/cors": "^0.2.0",
     "@ezbackend/utils": "^0.2.0",
-    "dotenv": "^10.0.0"
+    "dotenv": "^10.0.0",
+    "telegraf": "^4.5.2"
   },
   "devDependencies": {
     "@ezbackend/db-ui": "^0.2.0",
