@@ -1,7 +1,5 @@
 import { EzBackend, EzRepo, Type } from '@ezbackend/common';
-import { EzOpenAPI } from '@ezbackend/openapi';
-import { EzDbUI } from '@ezbackend/db-ui';
-import { EzCors } from '@ezbackend/cors';
+
 import { Telegraf, Scenes, session } from 'telegraf'
 
 
@@ -154,21 +152,29 @@ bot.command('delete', (ctx) => {
 
 app.addApp(catchPhrase);
 
-if (process.env.NODE_ENV === 'production') {
-  app.start({
-    backend: {
-      listen: {
-        address: '0.0.0.0'
-      },
-      typeorm: {
-        type: 'postgres',
-        url: process.env.DATABASE_URL,
-        ssl: true
+console.log("beep boop")
+
+async function run() {
+  if (process.env.NODE_ENV === 'production') {
+    console.log('productioning')
+    await app.start({
+      backend: {
+        listen: {
+          address: '0.0.0.0'
+        },
+        typeorm: {
+          type: 'postgres',
+          url: process.env.DATABASE_URL,
+          ssl: true
+        }
       }
-    }
-  });
-} else {
-  app.start()
+    });
+    console.log("app started yoo hoo")
+  } else {
+    app.start()
+  }
+  
+  bot.launch()
 }
 
-bot.launch()
+run()
